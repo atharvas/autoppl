@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
 #include <array>
-#include <autoppl/expr_builder.hpp>
+#include <autoppl/expression/expr_builder.hpp>
 #include <autoppl/mcmc/hmc/momentum_handler.hpp>
 #include <autoppl/mcmc/sampler_tools.hpp>
 

@@ -2,7 +2,7 @@
 #include <array>
 #include <limits>
 #include <autoppl/mcmc/mh.hpp>
-#include <autoppl/expr_builder.hpp>
+#include <autoppl/expression/expr_builder.hpp>
 #include <testutil/sample_tools.hpp>
 
 namespace ppl {

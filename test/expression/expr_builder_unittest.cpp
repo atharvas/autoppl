@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include <autoppl/expr_builder.hpp>
+#include <autoppl/expression/expr_builder.hpp>
 #include <testutil/mock_types.hpp>
 
 namespace ppl {

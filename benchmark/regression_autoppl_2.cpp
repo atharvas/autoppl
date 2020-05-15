@@ -8,7 +8,7 @@
 #include <unordered_map>
 
 #include <autoppl/variable.hpp>
-#include <autoppl/expr_builder.hpp>
+#include <autoppl/expression/expr_builder.hpp>
 #include <autoppl/mcmc/hmc/nuts/nuts.hpp>
 
 #include "benchmark_utils.hpp"

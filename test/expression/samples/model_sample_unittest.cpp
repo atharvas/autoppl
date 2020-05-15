@@ -1,5 +1,5 @@
 #include <array>
-#include <autoppl/expr_builder.hpp>
+#include <autoppl/expression/expr_builder.hpp>
 #include <autoppl/variable.hpp>
 #include <autoppl/util/dist_expr_traits.hpp>
 

@@ -241,7 +241,7 @@ add_test(mcmc_unittest mcmc_unittest)
 ######################################################
 
 add_executable(expr_builder_unittest
-    ${CMAKE_CURRENT_SOURCE_DIR}/expr_builder_unittest.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/expression/expr_builder_unittest.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/ad_integration_unittest.cpp
     )
 

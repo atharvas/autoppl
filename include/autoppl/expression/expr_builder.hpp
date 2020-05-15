@@ -5,7 +5,6 @@
 #include <autoppl/expression/variable/variable_viewer.hpp>
 #include <autoppl/expression/variable/constant.hpp>
 #include <autoppl/expression/variable/binop.hpp>
-#include <autoppl/variable.hpp>
 #include <autoppl/expression/distribution/uniform.hpp>
 #include <autoppl/expression/distribution/normal.hpp>
 #include <autoppl/expression/distribution/bernoulli.hpp>

@@ -1,6 +1,6 @@
 #include "gtest/gtest.h" 
 #include <array>
-#include <autoppl/expr_builder.hpp>
+#include <autoppl/expression/expr_builder.hpp>
 #include <autoppl/mcmc/hmc/nuts/nuts.hpp>
 #include <testutil/sample_tools.hpp>
 #include <fastad>
