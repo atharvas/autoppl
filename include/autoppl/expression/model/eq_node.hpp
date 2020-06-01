@@ -79,7 +79,7 @@ struct EqNode : util::ModelExpr<EqNode<VarType, DistType>>
         // if parameter, find the corresponding variable
         // in vars and return the AD log-pdf with this variable.
 #if __cplusplus <= 201703L
-        if constexpr (util::is_param_v<var_t>) {
+        if constexpr (util::is_pvar_v<var_t>) {
 #else
         if constexpr (util::param<var_t>) {
 #endif
@@ -94,7 +94,7 @@ struct EqNode : util::ModelExpr<EqNode<VarType, DistType>>
         // is a constant AD node containing each value of data.
         // note: data is not copied at any point.
 #if __cplusplus <= 201703L
-        else if constexpr (util::is_data_v<var_t>) {
+        else if constexpr (util::is_dvar_v<var_t>) {
 #else
         else if constexpr (util::data<var_t>) {
 #endif

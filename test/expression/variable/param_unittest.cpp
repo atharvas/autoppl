@@ -1,32 +1,25 @@
-#include <autoppl/variable.hpp>
+#include <autoppl/variable/var.hpp>
+#include <autoppl/variable/vec.hpp>
 
 #include "gtest/gtest.h"
 
 namespace ppl {
 namespace expr {
 
-struct param_fixture : ::testing::Test {
+struct pvar_fixture : ::testing::Test {
    protected:
-    Param<double> param1;
-    Param<double> param2 {3.};
-
-    size_t expected_size;
-    size_t real_size;
+    PVar<double> param1;
+    PVar<double> param2 {3.};
 };
 
-TEST_F(param_fixture, test_multiple_value) {
-    expected_size = 1;
-    real_size = param1.size();
-    
-    EXPECT_EQ(expected_size, real_size);
+TEST_F(pvar_fixture, test_multiple_value) {
 
-    EXPECT_EQ(param1.get_value(0), 0.0);
+    EXPECT_EQ(param1.get_value(), 0.0);
     param1.set_value(1.0);
 
-    EXPECT_EQ(param1.get_value(0), 1.0);
-    EXPECT_EQ(param1.get_value(10), 1.0);  // all indices return the same
+    EXPECT_EQ(param1.get_value(), 1.0);
 
-    EXPECT_EQ(param2.get_value(0), 3.0);  // all indices return the same
+    EXPECT_EQ(param2.get_value(), 3.0); 
 
     EXPECT_EQ(param1.get_storage(), nullptr);
     

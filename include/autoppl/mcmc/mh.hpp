@@ -3,7 +3,7 @@
 #include <array>
 #include <autoppl/util/logging.hpp>
 #include <autoppl/util/traits.hpp>
-#include <autoppl/variable.hpp>
+#include <autoppl/variable/var.hpp>
 #include <chrono>
 #include <iostream>
 #include <random>

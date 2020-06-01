@@ -17,15 +17,14 @@ enum class MockState {
  * Mock Variable class that should meet the requirements
  * of is_var_v.
  */
-struct MockParam : util::ParamLike<MockParam> {
+struct MockPVar : util::PVarLike<MockPVar> {
 
     using value_t = double;
     using pointer_t = double*;
     using const_pointer_t = const double*;
 
     void set_value(value_t x) { value_ = x; }
-    value_t get_value(size_t) const { return value_; }
-    constexpr size_t size() const { return 1; }
+    value_t get_value() const { return value_; }
 
     void set_storage(pointer_t ptr) {ptr_ = ptr;}
 
@@ -34,17 +33,13 @@ private:
     pointer_t ptr_ = nullptr;
 };
 
-struct MockData : util::DataLike<MockData>
+struct MockDVar : util::DVarLike<MockDVar>
 {
     using value_t = double;
     using pointer_t = double*;
     using const_pointer_t = const double*;
 
-    value_t get_value(size_t) const { 
-        return value_;
-    }
-
-    constexpr size_t size() const { return 1; }
+    value_t get_value() const { return value_; }
 
 private:
     value_t value_ = 0.0;
@@ -55,14 +50,14 @@ private:
  * Mock variable classes that fulfill 
  * var_traits requirements, but do not fit the rest.
  */
-struct MockParam_no_convertible : util::Var<MockParam>
+struct MockPVar_no_convertible : util::Var<MockPVar>
 {
     using value_t = double;
     using pointer_t = double*;
     using const_pointer_t = const double*;
 };
 
-struct MockData_no_convertible : util::Var<MockData> {
+struct MockDVar_no_convertible : util::Var<MockDVar> {
     using value_t = double;
     using pointer_t = double*;
     using const_pointer_t = const double*;
@@ -78,8 +73,6 @@ struct MockVarExpr : util::VarExpr<MockVarExpr>
     value_t get_value(size_t) const { 
         return x_; 
     }
-
-    constexpr size_t size() const { return 1; }
 
     /* not part of API */
     MockVarExpr(value_t x = 0.)

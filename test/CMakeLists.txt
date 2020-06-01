@@ -38,36 +38,36 @@ endif()
 
 add_test(util_unittest util_unittest)
 
-######################################################
-# Sample Test
-######################################################
-
-add_executable(sample_unittest
-    ${CMAKE_CURRENT_SOURCE_DIR}/expression/samples/dist_sample_unittest.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/expression/samples/model_sample_unittest.cpp
-    )
-
-if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-	target_compile_options(sample_unittest PRIVATE -g -Wall)
-else()
-	target_compile_options(sample_unittest PRIVATE -g -Wall -Werror -Wextra)
-endif()
-
-target_include_directories(sample_unittest PRIVATE
-    ${GTEST_DIR}/include
-    ${CMAKE_CURRENT_SOURCE_DIR}
-    ${AUTOPPL_INCLUDE_DIRS}
-    )
-if (AUTOPPL_ENABLE_TEST_COVERAGE)
-    target_link_libraries(sample_unittest gcov)
-endif()
-
-target_link_libraries(sample_unittest autoppl_gtest_main ${AUTOPPL_LIBS})
-if (NOT CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-	target_link_libraries(sample_unittest pthread)
-endif()
-
-add_test(sample_unittest sample_unittest)
+#######################################################
+## Sample Test
+#######################################################
+#
+#add_executable(sample_unittest
+#    ${CMAKE_CURRENT_SOURCE_DIR}/expression/samples/dist_sample_unittest.cpp
+#    ${CMAKE_CURRENT_SOURCE_DIR}/expression/samples/model_sample_unittest.cpp
+#    )
+#
+#if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+#	target_compile_options(sample_unittest PRIVATE -g -Wall)
+#else()
+#	target_compile_options(sample_unittest PRIVATE -g -Wall -Werror -Wextra)
+#endif()
+#
+#target_include_directories(sample_unittest PRIVATE
+#    ${GTEST_DIR}/include
+#    ${CMAKE_CURRENT_SOURCE_DIR}
+#    ${AUTOPPL_INCLUDE_DIRS}
+#    )
+#if (AUTOPPL_ENABLE_TEST_COVERAGE)
+#    target_link_libraries(sample_unittest gcov)
+#endif()
+#
+#target_link_libraries(sample_unittest autoppl_gtest_main ${AUTOPPL_LIBS})
+#if (NOT CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+#	target_link_libraries(sample_unittest pthread)
+#endif()
+#
+#add_test(sample_unittest sample_unittest)
 
 ######################################################
 # Variable Test
@@ -103,6 +103,7 @@ endif()
 
 add_test(var_unittest var_unittest)
 
+<<<<<<< HEAD
 ######################################################
 # Distribution Expression Test
 ######################################################
