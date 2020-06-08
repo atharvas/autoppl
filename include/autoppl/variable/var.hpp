@@ -1,4 +1,5 @@
 #pragma once
+#include <autoppl/util/param_data_traits.hpp>
 #include <autoppl/util/var_traits.hpp>
 
 namespace ppl {
@@ -12,7 +13,9 @@ namespace ppl {
  */
 
 template <class ValueType>
-struct PVar : util::PVarLike<PVar<ValueType>> 
+struct PVar : 
+    util::Var<PVar<ValueType>>,
+    util::Param<PVar<ValueType>> 
 {
     using value_t = ValueType;
     using pointer_t = value_t*;
@@ -50,7 +53,9 @@ private:
  * To this end, the user does not provide external storage for samples. 
  */
 template <class ValueType>
-struct DVar : util::DVarLike<DVar<ValueType>>
+struct DVar : 
+    util::Var<DVar<ValueType>>,
+    util::Data<DVar<ValueType>>
 {
     using value_t = ValueType;
     using pointer_t = value_t*;

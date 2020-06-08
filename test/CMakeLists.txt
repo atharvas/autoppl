@@ -103,7 +103,6 @@ endif()
 
 add_test(var_unittest var_unittest)
 
-<<<<<<< HEAD
 ######################################################
 # Distribution Expression Test
 ######################################################

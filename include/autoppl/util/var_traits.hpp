@@ -20,45 +20,15 @@ struct Var : BaseCRTP<T>
 { using BaseCRTP<T>::self; };
 
 /**
- * Base class for all Data-like variables.
- * It is necessary for all Data-like variables to
- * derive from this class.
- */
-template <class T>
-struct PVarLike : Var<T>
-{ using Var<T>::self; };
-
-/**
- * Base class for all Param-like variables.
- * It is necessary for all Param-like variables to
- * derive from this class.
- */
-template <class T>
-struct DVarLike : Var<T>
-{ using Var<T>::self; };
-
-
-/**
  * Checks if DataLike<T>, ParamLike<T> or Var<T> 
  * is base of type T 
  */
-
-template <class T>
-inline constexpr bool dvar_is_base_of_v =
-    std::is_base_of_v<DVarLike<T>, T>;
-
-template <class T>
-inline constexpr bool pvar_is_base_of_v =
-    std::is_base_of_v<PVarLike<T>, T>;
-
 template <class T>
 inline constexpr bool var_is_base_of_v =
     std::is_base_of_v<Var<T>, T>;
 
 #if __cplusplus <= 201703L
 DEFINE_ASSERT_ONE_PARAM(var_is_base_of_v);
-DEFINE_ASSERT_ONE_PARAM(pvar_is_base_of_v);
-DEFINE_ASSERT_ONE_PARAM(dvar_is_base_of_v);
 #endif
 
 /**
@@ -84,50 +54,13 @@ struct var_traits
 #if __cplusplus <= 201703L
 
 template <class T>
-inline constexpr bool is_dvar_v = 
-    dvar_is_base_of_v<T> &&
+inline constexpr bool is_var_v =
+    var_is_base_of_v<T> &&
     has_type_value_t_v<T> &&
     has_type_pointer_t_v<T> &&
     has_type_const_pointer_t_v<T> &&
     has_func_set_value_v<T> &&
     has_func_get_value_v<const T>
-    ;
-
-template <class T>
-inline constexpr bool is_pvar_v = 
-    pvar_is_base_of_v<T> &&
-    has_type_value_t_v<T> &&
-    has_type_pointer_t_v<T> &&
-    has_type_const_pointer_t_v<T> &&
-    has_func_set_value_v<T> &&
-    has_func_get_value_v<const T> &&
-    has_func_set_storage_v<T>
-    ;
-
-template <class T>
-inline constexpr bool assert_is_dvar_v = 
-    assert_dvar_is_base_of_v<T> &&
-    assert_has_type_value_t_v<T> &&
-    assert_has_type_pointer_t_v<T> &&
-    assert_has_type_const_pointer_t_v<T> &&
-    assert_has_func_set_value_v<T> &&
-    assert_has_func_get_value_v<const T>
-    ;
-
-template <class T>
-inline constexpr bool assert_is_pvar_v = 
-    assert_pvar_is_base_of_v<T> &&
-    assert_has_type_value_t_v<T> &&
-    assert_has_type_pointer_t_v<T> &&
-    assert_has_type_const_pointer_t_v<T> &&
-    assert_has_func_set_value_v<T> &&
-    assert_has_func_get_value_v<const T> &&
-    assert_has_func_set_storage_v<T>
-    ;
-
-template <class T>
-inline constexpr bool is_var_v =
-    is_dvar_v<T> || is_pvar_v<T>
     ;
 
 DEFINE_ASSERT_ONE_PARAM(is_var_v);
