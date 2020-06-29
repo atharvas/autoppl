@@ -1,3 +1,6 @@
+*This is a private fork intended for my own personal use. Please go to https://github.com/JamesYang007/autoppl to view the most up to date info on this project.*
+
+
 # AutoPPL
 
 [![Build Status](https://travis-ci.org/JamesYang007/autoppl.svg?branch=master)](https://travis-ci.org/JamesYang007/autoppl)
